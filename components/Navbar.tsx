@@ -8,8 +8,12 @@ const Navbar = () => {
     <Link href='/'> 
         <h1 className=' font-bold text-3xl tracking-tighter'>Junaid Paramberi</h1>
     </Link>
-    <div>
+    <div className=' flex gap-8'>
     <Link href='/home'>Home</Link>
+    <Link href='/home'>About</Link>
+    <Link href='/home'>Works</Link>
+    <Link href='/home'>Blog</Link>
+    <Link href='/home'>Gallery</Link>
     </div>
     </nav>
   </div>
