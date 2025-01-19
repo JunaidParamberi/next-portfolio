@@ -1,7 +1,7 @@
 // hooks/useZoomEffect.ts
 "use client";
 import { useState } from "react";
-import { motion } from "motion/react-client";
+
 
 // Custom hook for zoom effect
 const useZoomEffect = (initialScale: number = 1) => {

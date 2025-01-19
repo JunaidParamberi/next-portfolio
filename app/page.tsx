@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer"; // Correct import
 import WorkCard from "@/components/WorkCard";
 import cardImg from "@/assets/images/reehyn.jpg";
 import cardImg2 from "@/assets/images/img2.jpg";
-import { Work } from "@/types/types";
+
 import About from "@/components/About";
 import Link from "next/link";
 import Clients from "@/components/Clients";
@@ -20,13 +20,13 @@ export default function Home() {
   });
 
   // Correctly destructuring useInView
-  const { ref, inView } = useInView({
+  const { inView } = useInView({
     triggerOnce: false, // Allow animation every time it comes into view
     threshold: 0.9, // Trigger when 90% of the section is in the viewport
   });
 
   // Manage delay increasing with each scroll
-  const [delay, setDelay] = useState(0.5);
+  const [, setDelay] = useState(0.5);
 
   useEffect(() => {
     if (inView) {
