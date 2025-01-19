@@ -9,6 +9,7 @@ import cardImg2 from "@/assets/images/img2.jpg";
 import { Work } from "@/types/types";
 import About from "@/components/About";
 import Link from "next/link";
+import Clients from "@/components/Clients";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -102,6 +103,7 @@ export default function Home() {
           </div>
 
           <About />
+          <Clients />
 
           {/* <span>
             <h1
