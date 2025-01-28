@@ -18,7 +18,9 @@
     "motion": "^11.18.0",
     "next": "15.1.3",
     "react": "^19.0.0",
+    "react-animated-cursor": "^2.11.2",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
     "react-intersection-observer": "^9.15.0"
   },
   "devDependencies": {

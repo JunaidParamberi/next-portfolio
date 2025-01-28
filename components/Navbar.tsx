@@ -11,11 +11,11 @@ const Navbar = () => {
   // Monitor the scroll position
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        // If scrolling down, hide navbar
+      if (window.scrollY > lastScrollY && window.scrollY > 5) {
+        // If scrolling down and not at the top, hide navbar
         setShowNavbar(false);
       } else {
-        // If scrolling up, show navbar
+        // If scrolling up or at the top, show navbar
         setShowNavbar(true);
       }
       setLastScrollY(window.scrollY); // Update last scroll position
@@ -25,24 +25,31 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  console.log(lastScrollY);
-
   return (
     <div
-      className={`w-full fixed top-0 flex justify-center items-center py-7 navbar transition-transform duration-300 ${
+      className={`w-full fixed top-0 flex justify-center items-center py-7 navbar transition-transform duration-300 z-50 ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       <nav className="w-[80%] flex justify-between items-center">
         <Link href="/">
-          <Image className="w-[50%]" src={whiteLogo} alt="white logo" />
+          <Image
+            className="w-[10vw] h-auto"
+            src={whiteLogo}
+            alt="white logo"
+            layout="intrinsic" // Stabilize size
+            priority // Optimize loading for important assets
+          />
         </Link>
-        <div className=" flex gap-8">
-          <Link href="/home">Home.</Link>
-          <Link href="/home">About.</Link>
-          <Link href="#home">Works.</Link>
-          <Link href="/home">Blog.</Link>
-          <Link href="/home">Gallery.</Link>
+
+        <div className="w-full flex justify-end">
+          <div className="flex gap-8">
+            <Link href="/home">Home.</Link>
+            <Link href="/about">About.</Link>
+            <Link href="#works">Works.</Link>
+            <Link href="/blog">Blog.</Link>
+            <Link href="/gallery">Gallery.</Link>
+          </div>
         </div>
       </nav>
     </div>

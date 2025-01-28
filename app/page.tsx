@@ -10,6 +10,8 @@ import cardImg2 from "@/assets/images/img2.jpg";
 import About from "@/components/About";
 import Link from "next/link";
 import Clients from "@/components/Clients";
+import Services from "@/components/Services";
+import Stacks from "@/components/Stacks";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -85,9 +87,11 @@ export default function Home() {
           background: "white",
         }}
       />
+
       <div className="w-full flex flex-col items-center">
         <div className="w-[80%] py-6 flex flex-col gap-4">
           <Hero />
+          <Stacks />
 
           <div className="w-full pb-20 flex flex-col items-center" id="home">
             <h2 className="text-center text-xl py-5">FEATURED WORK</h2>
@@ -103,29 +107,11 @@ export default function Home() {
           </div>
 
           <About />
+
           <Clients />
-
-          {/* <span>
-            <h1
-              style={{
-                fontVariationSettings: "'wdth' 100",
-                transition: "font-variation-settings 0.3s ease",
-              }}
-              onMouseEnter={(e) =>
-                ((e.target as HTMLElement).style.fontVariationSettings =
-                  "'wdth' 200")
-              }
-              onMouseLeave={(e) =>
-                ((e.target as HTMLElement).style.fontVariationSettings =
-                  "'wdth' 100")
-              }
-            >
-              H
-            </h1>
-
-            <h1>U</h1>
-          </span> */}
+          <Services />
         </div>
+        <div className="gradient-bg">{/* Your content here */}</div>
       </div>
     </>
   );

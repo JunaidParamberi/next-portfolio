@@ -38,7 +38,7 @@ const Clients = () => {
       <div className=" w-[80%] flex justify-between">
         {clientArr.map((client, index) => (
           <Image
-            className=" h-10 opacity-60 w-fit hover:opacity-100 transition-opacity"
+            className="  w-[9vw] opacity-60  hover:opacity-100 transition-opacity"
             key={index}
             src={client.clientImage}
             alt={`logo ${client.clientName}`}

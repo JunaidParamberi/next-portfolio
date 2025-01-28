@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AnimatedCursor from "react-animated-cursor";
 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -14,8 +15,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="black">
+    <html lang="en" data-theme="mytheme">
       <body className="antialiased">
+        <AnimatedCursor
+          innerSize={10} // Slightly larger inner circle
+          outerSize={30} // Larger, soft outer glow
+          color="255, 255, 255" // White color
+          // color="linear-gradient(90deg, rgba(255,0,150,1) 0%, rgba(0,204,255,1) 100%)" // Gradient color (not supported directly)
+          outerAlpha={0.2} // Subtle glow effect
+          innerScale={1.2} // Elegant scaling on hover
+          outerScale={4} // Soft and prominent scaling on hover
+          // hasBlendMode={true} // Adds a blend mode for a modern glassy effect
+          clickables={[
+            "a",
+            "button",
+            'input[type="text"]',
+            'input[type="email"]',
+            'input[type="number"]',
+            'input[type="submit"]',
+            'input[type="radio"]',
+            'input[type="checkbox"]',
+            ".link",
+          ]} // Elements for interactivity
+        />
         <Navbar />
         {children}
       </body>

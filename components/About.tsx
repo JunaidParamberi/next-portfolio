@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className=" w-full flex py-20">
       <div className=" w-[50%]">
-        <h1 className=" text-7xl">About</h1>
+        <h1 className=" text-5xl">About</h1>
       </div>
       <div className="w-[50%]">
         <p className="opacity-80">

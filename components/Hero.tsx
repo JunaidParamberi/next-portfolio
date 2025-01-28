@@ -49,7 +49,7 @@ const Hero = () => {
           {/* <br />
         {secondPartDisplayText} */}
         </motion.p>
-        <button className="btn btn-wide font-thin rounded-md">
+        <button className="btn btn-outline btn-wide font-thin rounded-md">
           Download my cv
           <DownloadingOutlinedIcon fontSize="small" />
         </button>
