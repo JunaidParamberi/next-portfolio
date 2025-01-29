@@ -1,32 +1,43 @@
 "use client";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import AnimatedCursor from "react-animated-cursor";
 
-export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+const CustomCursor = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth > 768); // Enable only for screens wider than 768px
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    checkScreenSize(); // Check on mount
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
+  if (!isDesktop) return null; // Don't render on mobile
+
   return (
-    <motion.div
-      className="custom-cursor"
-      style={{
-        transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0)`,
-      }}
-      animate={{
-        scale: [1, 1.5, 1],
-      }}
-      transition={{
-        duration: 0.5,
-        repeat: Infinity,
-      }}
+    <AnimatedCursor
+      innerSize={10}
+      outerSize={30}
+      color="255, 255, 255"
+      outerAlpha={0.2}
+      innerScale={1.2}
+      outerScale={4}
+      clickables={[
+        "a",
+        "button",
+        'input[type="text"]',
+        'input[type="email"]',
+        'input[type="number"]',
+        'input[type="submit"]',
+        'input[type="radio"]',
+        'input[type="checkbox"]',
+        ".link",
+      ]}
     />
   );
-}
+};
+
+export default CustomCursor;
