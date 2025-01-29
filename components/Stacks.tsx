@@ -15,7 +15,7 @@ import {
 } from "react-icons/si";
 
 const technologies = [
-  { name: "HTML5", icon: <SiHtml5 className="text-5xl" /> },
+  { name: "HTML5", icon: <SiHtml5 className="text-5xl max-md:text-4xl" /> },
   { name: "CSS3", icon: <SiCss3 className="text-5xl max-md:text-4xl" /> },
   {
     name: "JavaScript",
