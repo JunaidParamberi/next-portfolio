@@ -12,15 +12,21 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
+      const currentScrollY =
+        document.documentElement.scrollTop || window.scrollY;
+
+      if (currentScrollY === 0) {
+        setShowNavbar(true); // Ensure navbar is always visible at the top
+      } else if (currentScrollY > lastScrollY) {
         setShowNavbar(false);
       } else {
         setShowNavbar(true);
       }
-      setLastScrollY(window.scrollY);
+
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
@@ -34,7 +40,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`w-full fixed top-0 navbar flex justify-center items-center py-5 transition-transform duration-300 z-50 ${
+      className={`w-full fixed top-[0px] navbar flex justify-center items-center py-5 transition-transform duration-300 z-50 ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
