@@ -3,10 +3,10 @@ import React from "react";
 const About = () => {
   return (
     <div className=" w-full flex py-20">
-      <div className=" w-[50%]">
+      <div className=" w-[30%]">
         <h1 className=" text-5xl">About</h1>
       </div>
-      <div className="w-[50%]">
+      <div className="w-full">
         <p className="opacity-80">
           <strong className=" text-2xl ">I&apos;m Junaid Paramberi,</strong> a
           dedicated and passionate Web Developer and Graphic Designer with a

@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import * as motion from "motion/react-client";
-// import useTypingEffect from "@/hooks/useTypingEffect";
 import useZoomEffect from "@/hooks/useZoomEffect";
 import Image from "next/image";
 
@@ -9,51 +8,32 @@ import avtarAndIcon from "@/assets/images/icons/AvatarAndIcons.svg";
 import DownloadingOutlinedIcon from "@mui/icons-material/DownloadingOutlined";
 
 const Hero = () => {
-  // const text = "Junaid Paramberi"; // Your desired text for h1
-  // const firstPartText = "Welcome to my creative space!"; // First part of paragraph (before <br />)
-  // const secondPartText =
-  //   "As a freelance web developer, I specialize in crafting responsive, user-friendly websites that blend creativity with functionality. Let’s collaborate to transform your ideas into exceptional digital experiences."; // Second part of paragraph (after <br />)
-
-  // const typingSpeed = 100; // Speed of random letter change (in ms)
-  // const typingSpeedP = 7; // Speed of random letter change (in ms)
-
-  // // Call the custom hook to get the animated text for h1
-  // const displayText = useTypingEffect(text, typingSpeed);
-
-  // // Call the custom hook for typing effect for the first part of the paragraph
-  // const firstPartDisplayText = useTypingEffect(firstPartText, typingSpeedP);
-
-  // // Call the custom hook for typing effect for the second part of the paragraph
-  // const secondPartDisplayText = useTypingEffect(secondPartText, typingSpeedP);
-
-  // Call the custom zoom effect hook
   const zoomProps = useZoomEffect(1); // Use initial scale of 1
 
   return (
-    <div className=" flex w-full justify-between  h-[80vh] items-center">
+    <div className="flex flex-col-reverse md:flex-row w-full justify-between items-center py-12 md:pt-28 ">
       <motion.div
-        className="w-[60%] flex flex-col justify-center  gap-6"
-        {...zoomProps} // Spread zoom props here to apply the zoom effect
+        className="w-full py-5 md:w-[60%] flex flex-col justify-center gap-6 text-center md:text-left"
+        {...zoomProps}
       >
-        <motion.h1 className="text-6xl  font-[700]">
-          {/* {displayText} */}
+        <motion.h1 className="text-3xl md:text-6xl font-[700] text-left">
           Junaid Paramberi
         </motion.h1>
-        <motion.p className=" text-xl opacity-70">
-          {/* {firstPartDisplayText} */}
+        <motion.p className="text-md md:text-xl opacity-70 text-left">
           Welcome to my creative space! <br />
           As a freelance web developer, I specialize in crafting responsive,
           user-friendly websites that blend creativity with functionality. Let’s
           collaborate to transform your ideas into exceptional digital
           experiences.
-          {/* <br />
-        {secondPartDisplayText} */}
         </motion.p>
-        <button className="btn btn-outline btn-wide font-thin rounded-md">
-          Download my cv
-          <DownloadingOutlinedIcon fontSize="small" />
-        </button>
+        <div className="flex w-full md:justify-start">
+          <button className="btn btn-outline btn-wide font-thin rounded-md max-md:w-full">
+            Download my CV
+            <DownloadingOutlinedIcon fontSize="small" />
+          </button>
+        </div>
       </motion.div>
+
       <motion.div
         whileHover={{
           scale: [null, 1.1, 1.1],
@@ -67,9 +47,13 @@ const Hero = () => {
           duration: 0.3,
           ease: "easeOut",
         }}
-        className="w-[30%]"
+        className="w-full md:w-[40%] flex justify-center"
       >
-        <Image className="w-full" src={avtarAndIcon} alt="avatar" />
+        <Image
+          className="w-full max-w-[300px] md:max-w-[450px]"
+          src={avtarAndIcon}
+          alt="avatar"
+        />
       </motion.div>
     </div>
   );
