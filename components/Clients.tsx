@@ -30,20 +30,22 @@ const Clients = () => {
     },
   ];
   return (
-    <div className=" w-full flex gap-5 items-center py-16">
-      <h4 className=" w-[30%] text-md border-r">
-        Worked with some of the best Companies
-      </h4>
+    <div className=" w-full flex flex-col justify-center items-center">
+      <div className=" w-[80%] flex gap-5 items-center py-16">
+        <h4 className=" w-[30%] text-md border-r">
+          Worked with some of the best Companies
+        </h4>
 
-      <div className=" w-[80%] flex justify-between">
-        {clientArr.map((client, index) => (
-          <Image
-            className="  w-[9vw] opacity-60  hover:opacity-100 transition-opacity"
-            key={index}
-            src={client.clientImage}
-            alt={`logo ${client.clientName}`}
-          />
-        ))}
+        <div className=" w-[80%] flex justify-between">
+          {clientArr.map((client, index) => (
+            <Image
+              className="  w-[9vw] opacity-60  hover:opacity-100 transition-opacity"
+              key={index}
+              src={client.clientImage}
+              alt={`logo ${client.clientName}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

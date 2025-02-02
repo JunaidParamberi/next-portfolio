@@ -25,21 +25,23 @@ const servicesData = [
 const Services = () => {
   return (
     <div className="w-full flex py-20 flex-col items-center">
-      <div className="pb-16 w-full">
-        <h1 className="text-5xl text-left">What I Do</h1>
+      <div className="pb-16 w-[80%] flex flex-col items-center">
+        <h1 className="text-5xl w-full text-left">What I Do</h1>
       </div>
 
-      <div className="w-full flex flex-wrap justify-between border-t border-b gap-5 border-gray-300 py-20">
-        {servicesData.map((service, index) => (
-          <div
-            key={index}
-            className="w-full sm:w-[80%] md:w-[45%] lg:w-[30%] flex flex-col gap-10 select-none"
-          >
-            {service.icon}
-            <h2 className="text-3xl font-bold">{service.title}</h2>
-            <p className="opacity-80">{service.description}</p>
-          </div>
-        ))}
+      <div className="w-full flex flex-col items-center  border-t  border-b gap-5 border-gray-700 py-20">
+        <div className=" w-[80%] flex flex-wrap justify-between items-center">
+          {servicesData.map((service, index) => (
+            <div
+              key={index}
+              className="w-full sm:w-[80%] md:w-[45%] lg:w-[30%] flex flex-col gap-10 select-none"
+            >
+              {service.icon}
+              <h2 className="text-3xl font-bold">{service.title}</h2>
+              <p className="opacity-80">{service.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

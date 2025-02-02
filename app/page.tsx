@@ -12,6 +12,7 @@ import Link from "next/link";
 import Clients from "@/components/Clients";
 import Services from "@/components/Services";
 import Stacks from "@/components/Stacks";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -89,27 +90,29 @@ export default function Home() {
       />
 
       <div className="w-full flex flex-col items-center">
-        <div className="w-[80%] py-6 flex flex-col gap-4">
+        <div className="w-full py-6 flex flex-col gap-4">
           <Hero />
           <Stacks />
+          <div className=" w-full flex flex-col items-center" id="works">
+            <div className="w-[80%] pb-20 flex flex-col items-center" id="home">
+              <h2 className="text-center text-xl py-5">FEATURED WORK</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full py-8">
+                {works.map((work, index) => (
+                  <WorkCard key={index} data={work} />
+                ))}
+              </div>
 
-          <div className="w-full pb-20 flex flex-col items-center" id="home">
-            <h2 className="text-center text-xl py-5">FEATURED WORK</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full py-8">
-              {works.map((work, index) => (
-                <WorkCard key={index} data={work} />
-              ))}
+              <Link href="works" className=" btn btn-outline px-8 font-light">
+                View All
+              </Link>
             </div>
-
-            <Link href="works" className=" btn btn-outline px-8 font-light">
-              View All
-            </Link>
           </div>
 
           <About />
 
           <Clients />
           <Services />
+          <Contact />
         </div>
         <div className="gradient-bg">{/* Your content here */}</div>
       </div>

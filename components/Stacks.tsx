@@ -51,10 +51,12 @@ const technologies = [
 ];
 
 const Stacks = () => (
-  <div className="w-full py-20 text-center font-[Orbitron]">
-    <h1 className="md:text-5xl text-3xl mb-12  w-full text-left">
-      Technologies & Tools I Work With
-    </h1>
+  <div className="w-full py-20 text-center font-[Orbitron] ">
+    <div className=" w-full flex justify-center items-center">
+      <h1 className=" text-2xl mb-12  w-[80%]  ">
+        Technologies & Tools I Work With
+      </h1>
+    </div>
     <div className="overflow-hidden w-full">
       <div className="flex flex-nowrap justify-center animate-marquee gap-10 max-md:gap-5">
         {/* Duplicate the technologies array to create a seamless loop */}

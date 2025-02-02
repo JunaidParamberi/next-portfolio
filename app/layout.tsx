@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor"; // Import the cursor component
 
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Junaid Paramberi",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <CustomCursor /> {/* Cursor is now in a client component */}
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
