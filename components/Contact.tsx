@@ -36,6 +36,11 @@ const Contact = () => {
 
       if (response.ok) {
         setStatusMessage("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
       } else {
         setStatusMessage("Failed to send message. Please try again.");
       }
@@ -69,7 +74,9 @@ const Contact = () => {
             </div>
             <div className="flex items-center space-x-3">
               <span className="text-2xl">📞</span>
-              <span className="text-gray-300">+971 58 197 6818</span>
+              <a href="tel:+971 58 197 6818" className="text-gray-300">
+                +971 58 197 6818
+              </a>
             </div>
           </div>
         </div>
@@ -83,7 +90,7 @@ const Contact = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="bg-transparent input rounded-none border border-inherit focus:ring-2 focus:ring-inherit focus:outline-none p-2"
+              className=" bg-transparent input rounded-none border border-inherit focus:ring-2 focus:ring-inherit focus:outline-none p-2"
               required
             />
           </div>
@@ -95,7 +102,7 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="bg-transparent input rounded-none border border-inherit focus:ring-2 focus:ring-inherit focus:outline-none p-2"
+              className=" bg-transparent input rounded-none border border-inherit focus:ring-2 focus:ring-inherit focus:outline-none p-2"
               required
             />
           </div>
@@ -104,17 +111,17 @@ const Contact = () => {
             <label className="text-gray-300">Message</label>
             <textarea
               name="message"
-              rows="4"
+              rows={4}
               value={formData.message}
               onChange={handleChange}
-              className="bg-transparent textarea rounded-none border border-inherit focus:ring-2 focus:ring-inherit focus:outline-none p-2"
+              className=" bg-transparent textarea rounded-none border border-inherit focus:ring-2 focus:ring-inherit focus:outline-none p-2"
               required
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="btn btn-wide font-light btn-primary"
+            className=" btn btn-wide font-light btn-primary"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Submitting..." : "Submit"}
@@ -122,15 +129,15 @@ const Contact = () => {
 
           {/* Status message */}
           {statusMessage && (
-            <div
-              className={`alert mt-4 ${
+            <p
+              className={`mt-4 text-lg ${
                 statusMessage.includes("success")
-                  ? "alert-success"
-                  : "alert-error"
+                  ? "text-green-500"
+                  : "text-red-500"
               }`}
             >
-              <span>{statusMessage}</span>
-            </div>
+              {statusMessage}
+            </p>
           )}
         </form>
       </div>
