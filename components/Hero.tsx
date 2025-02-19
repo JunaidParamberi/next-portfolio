@@ -29,8 +29,10 @@ const Hero = () => {
           </motion.p>
           <div className="flex w-full md:justify-start">
             <button className="btn btn-outline btn-wide font-thin rounded-md max-md:w-full">
-              Download my CV
-              <DownloadingOutlinedIcon fontSize="small" />
+              <a href="/Junaid_New_CV.pdf" download="Junaid_New_CV.pdf">
+                Download my CV
+                <DownloadingOutlinedIcon fontSize="small" />
+              </a>
             </button>
           </div>
         </motion.div>

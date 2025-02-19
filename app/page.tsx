@@ -34,6 +34,7 @@ export default function Home() {
   useEffect(() => {
     if (inView) {
       setDelay((prevDelay) => prevDelay + 0.2); // Increase delay over time
+      //okay
     }
   }, [inView]);
 
