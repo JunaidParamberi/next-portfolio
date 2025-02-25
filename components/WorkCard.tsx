@@ -9,17 +9,16 @@ interface WorkCardProps {
 }
 
 const WorkCard: React.FC<WorkCardProps> = ({ data }) => {
-  const { item, shortDes, types, imageUrl } = data;
+  const { item, shortDes, types, imageUrl, id } = data;
 
   return (
     <div className="w-full h-full p-1 font-[Orbitron]">
-      <div className="overflow-hidden relative group">
-        {" "}
-        {/* Wrapper for cropping */}
+      <div className="relative w-full h-[550px] max-md:h-[350px] overflow-hidden group">
         <Image
-          src={imageUrl || "/default-image.jpg"} // Use a default image if no imageUrl is provided
+          src={imageUrl || "/default-image.jpg"} // Fallback image
           alt={`${item} project image`}
-          className="w-full object-cover transition-transform duration-300 group-hover:scale-110"
+          fill // Makes it responsive within the parent div
+          className="object-cover transition-transform duration-300 group-hover:scale-110"
         />
       </div>
 
@@ -30,13 +29,16 @@ const WorkCard: React.FC<WorkCardProps> = ({ data }) => {
         <div className="flex gap-4">
           {types.map((type, index) => (
             <div key={index} className="badge badge-soft badge-primary">
-              {type}
+              <p className=" max-md:text-[10px]">{type}</p>
             </div>
           ))}
         </div>
 
         <span>
-          <Link href={`works/${item}`} className="link link-hover">
+          <Link
+            href={`/works/${id}`}
+            className="link link-hover max-md:text-[13px]"
+          >
             View Project <ChevronRightIcon />{" "}
           </Link>
         </span>

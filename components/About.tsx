@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="w-full flex flex-col items-center">
+    <div id="about" className="w-full flex flex-col items-center">
       <div className=" w-[80%] flex py-20">
         <div className=" w-[30%]">
           <h1 className=" text-5xl">About</h1>

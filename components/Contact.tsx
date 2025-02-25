@@ -53,7 +53,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-background font-[Orbitron] text-foreground flex items-center justify-center p-6">
+    <div
+      id="contact"
+      className="bg-background font-[Orbitron] text-foreground flex items-center justify-center p-6"
+    >
       <div className="max-w-[80%] w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Side - Contact Info */}
         <div>

@@ -55,11 +55,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8">
-          <Link href="/home">Home.</Link>
-          <Link href="/about">About.</Link>
+          <Link href="#home">Home.</Link>
+          <Link href="#about">About.</Link>
           <Link href="#works">Works.</Link>
-          <Link href="/blog">Blog.</Link>
-          <Link href="/gallery">Gallery.</Link>
+          <Link href="#services">Services.</Link>
+          <Link href="#contact">Contact.</Link>
         </div>
 
         {/* Mobile Menu Button */}

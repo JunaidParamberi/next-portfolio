@@ -24,7 +24,7 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <div className="w-full flex py-20 flex-col items-center">
+    <div id="services" className="w-full flex py-20 flex-col items-center">
       <div className="pb-16 w-[80%] flex flex-col items-center">
         <h1 className="text-5xl w-full text-left">What I Do</h1>
       </div>

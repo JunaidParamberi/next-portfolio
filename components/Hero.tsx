@@ -11,7 +11,7 @@ const Hero = () => {
   const zoomProps = useZoomEffect(1); // Use initial scale of 1
 
   return (
-    <motion.div className="w-full flex flex-col items-center">
+    <motion.div id="home" className="w-full flex flex-col items-center">
       <div className="flex flex-col-reverse md:flex-row w-[80%] justify-between items-center py-12 md:pt-28 ">
         <motion.div
           className="w-full py-5 md:w-[60%] flex flex-col justify-center gap-6 text-center md:text-left"

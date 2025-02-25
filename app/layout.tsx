@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="mytheme">
       <body className="antialiased">
-        <CustomCursor /> {/* Cursor is now in a client component */}
+        <CustomCursor />
         <Navbar />
         {children}
         <Footer />
