@@ -2,12 +2,15 @@
 import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import { Work } from "@/types/types";
 import { works as workDatas } from "@/data/projectData";
 
 const Page = () => {
   const { id } = useParams();
-  const currentData = workDatas.find((work: Work) => work.slug === id);
+  const currentData = workDatas.find((work) => work.slug === id);
+
+  // Always define hooks at the top level
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const totalSlides = currentData?.Images?.length || 0;
 
   if (!currentData) {
     return (
@@ -16,10 +19,6 @@ const Page = () => {
       </div>
     );
   }
-
-  // Track the current slide index
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = currentData?.Images?.length;
 
   // Next and Previous Slide Functions
   const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % totalSlides);
@@ -55,54 +54,60 @@ const Page = () => {
         </div>
 
         {/* Daisy UI Carousel */}
-        <div className="carousel w-full relative">
-          {currentData?.Images?.map((image, index) => (
-            <div
-              key={index}
-              className={`carousel-item  w-full transition-all duration-500 ${
-                index === currentIndex ? "opacity-100" : "opacity-0 absolute"
-              }`}
-            >
-              <Image
-                src={image}
-                alt={`Project Image ${index + 1}`}
-                width={800}
-                height={500}
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-          ))}
+        {totalSlides > 0 && (
+          <div className="carousel w-full relative">
+            {currentData?.Images?.map((image, index) => (
+              <div
+                key={index}
+                className={`carousel-item w-full transition-all duration-500 ${
+                  index === currentIndex ? "opacity-100" : "opacity-0 absolute"
+                }`}
+              >
+                <Image
+                  src={image}
+                  alt={`Project Image ${index + 1}`}
+                  width={800}
+                  height={500}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+            ))}
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-5 top-1/2 -translate-y-1/2 btn btn-circle"
-          >
-            ❮
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-5 top-1/2 -translate-y-1/2 btn btn-circle"
-          >
-            ❯
-          </button>
-        </div>
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-5 top-1/2 -translate-y-1/2 btn btn-circle"
+            >
+              ❮
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-5 top-1/2 -translate-y-1/2 btn btn-circle"
+            >
+              ❯
+            </button>
+          </div>
+        )}
 
         {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-4">
-          {currentData?.Images?.map((_, index) => (
-            <button
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all ${
-                currentIndex !== index ? "bg-gray-800" : "bg-gray-400"
-              }`}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
-        </div>
+        {totalSlides > 1 && (
+          <div className="flex justify-center gap-2 mt-4">
+            {currentData?.Images?.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  currentIndex !== index ? "bg-gray-800" : "bg-gray-400"
+                }`}
+                onClick={() => setCurrentIndex(index)}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Embedded Project */}
         <iframe
           src="https://boehringeringelheim-interactive.netlify.app/"
-          className=" w-full h-[500px] md:h-[700px] rounded-lg"
+          className="w-full h-[500px] md:h-[700px] rounded-lg"
         ></iframe>
       </div>
     </div>
