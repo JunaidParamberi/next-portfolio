@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import { motion, useScroll, useSpring } from "motion/react";
 import { useInView } from "react-intersection-observer"; // Correct import
 import WorkCard from "@/components/WorkCard";
-import { works } from "@/data/projectData";
+import { works as workDatas } from "@/data/projectData";
 
 import About from "@/components/About";
 import Link from "next/link";
@@ -62,8 +62,8 @@ export default function Home() {
             <div className="w-[80%] pb-20 flex flex-col items-center" id="home">
               <h2 className="text-center text-xl py-5">FEATURED WORK</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full py-8">
-                {works.map((work, index) => (
-                  <WorkCard key={index} data={work} />
+                {workDatas.map((workData, index) => (
+                  <WorkCard key={index} data={workData} />
                 ))}
               </div>
 

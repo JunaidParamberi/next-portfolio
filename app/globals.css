@@ -76,6 +76,26 @@ body {
   }
   
 }
+.gradient-background-color {
+  
+
+  background: linear-gradient(-45deg, #000000, #00001f, #010013, #000110);
+  background-size: 400% 400%;
+  animation: gradientBgAnimation 10s ease infinite;
+}
+
+@keyframes gradientBgAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+  
+}
 
 
 /* CustomCursor.css */

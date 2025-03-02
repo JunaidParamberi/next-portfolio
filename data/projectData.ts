@@ -1,37 +1,32 @@
-import cardImg from "@/assets/images/reehyn.jpg";
+import { nanoid } from "nanoid";
+import biCoverImg from "@/assets/works/bi/cover-image-bi.png";
+import biImg1 from "@/assets/works/bi/bi01.png";
+import biImg2 from "@/assets/works/bi/bi02.png";
+import biImg3 from "@/assets/works/bi/bi03.png";
+import biImg4 from "@/assets/works/bi/bi04.png";
+import biImg5 from "@/assets/works/bi/bi05.png";
+import biImg6 from "@/assets/works/bi/bi06.png";
 import cardImg2 from "@/assets/images/img2.jpg";
 
 export const works = [
     {
-      id: 1,
-      item: "Window Line UAE",
-      imageUrl: cardImg,
-      shortDes: "AI driven design tool for the modern web.",
-      types: ["Web Design", "Ui/Ux Design", "Web Development"],
-      des: `I was responsible for designing and developing the comprehensive website for Window Line UAE, a company that excels in interior design, general contracting, and maintenance services. The website was meticulously crafted to highlight the company’s extensive portfolio, including wall coverings, window furnishings, partitioning, and ceiling solutions. The design approach focused on creating a modern, clean, and user-friendly interface that not only showcases their expertise but also enhances the overall user experience. Key features of the website include intuitive navigation, detailed service descriptions, and visually appealing layouts that reflect Window Line UAE’s commitment to quality and innovation. The site was also optimized for both desktop and mobile platforms, ensuring accessibility and a seamless browsing experience across all devices. Each section of the website was designed to convey the company’s professionalism and dedication to delivering high-quality results, from initial consultation through to project completion. Overall, the website serves as a crucial tool in reinforcing Window Line UAE’s brand identity, providing potential clients with a clear understanding of the company’s capabilities and values.`,
+      id: nanoid(10),
+      slug: "boehringeringelheim-" + nanoid(6),
+      clientName : 'Boehringer Ingelheim',
+      projectName: "Boehringer Ingelheim Interactive Platform",
+      imageUrl: biCoverImg,
+      Images : [biImg1, biImg2, biImg3, biImg4, biImg5, biImg6],
+      shortDes: "Futuristic Touch Screen Interactive Presentation for Web and PC",
+      types: ["Web Design", "UI/UX Design", "Web Development", "Interactive Presentation", "PC Software", "Cross-Platform Development"],
+      des: `I designed and developed an interactive platform for Boehringer Ingelheim, focusing on their initiatives in the IMETA region (India, Middle East, Turkey, and Africa). The platform, built using React-Electron, provides a seamless user experience across web and desktop environments. Key features include intuitive navigation, detailed content presentation, and interactive elements such as "Read More" buttons to engage users. The platform highlights healthcare programs, volunteer activities, and team profiles, with a clean and professional design that emphasizes readability and user engagement. The project showcases my expertise in React, Electron, and UI/UX design, delivering a dynamic and responsive interface for both web and PC platforms.`
     },
     {
-      id: 2,
-      item: "Window Line UAE",
+      id: nanoid(10),
+      slug: "window-line-uae-" + nanoid(6),
+      projectName: "Window Line UAE",
       imageUrl: cardImg2,
       shortDes: "AI driven design tool for the modern web.",
       types: ["Web Design", "Ui/Ux Design", "Web Development"],
-      des: `I was responsible for designing and developing the comprehensive website for Window Line UAE, a company that excels in interior design, general contracting, and maintenance services. The website was meticulously crafted to highlight the company’s extensive portfolio, including wall coverings, window furnishings, partitioning, and ceiling solutions. The design approach focused on creating a modern, clean, and user-friendly interface that not only showcases their expertise but also enhances the overall user experience. Key features of the website include intuitive navigation, detailed service descriptions, and visually appealing layouts that reflect Window Line UAE’s commitment to quality and innovation. The site was also optimized for both desktop and mobile platforms, ensuring accessibility and a seamless browsing experience across all devices. Each section of the website was designed to convey the company’s professionalism and dedication to delivering high-quality results, from initial consultation through to project completion. Overall, the website serves as a crucial tool in reinforcing Window Line UAE’s brand identity, providing potential clients with a clear understanding of the company’s capabilities and values.`,
-    },
-    {
-      id: 3,
-      item: "Window Line UAE",
-      imageUrl: cardImg,
-      shortDes: "AI driven design tool for the modern web.",
-      types: ["Web Design", "Ui/Ux Design", "Web Development"],
-      des: `I was responsible for designing and developing the comprehensive website for Window Line UAE, a company that excels in interior design, general contracting, and maintenance services. The website was meticulously crafted to highlight the company’s extensive portfolio, including wall coverings, window furnishings, partitioning, and ceiling solutions. The design approach focused on creating a modern, clean, and user-friendly interface that not only showcases their expertise but also enhances the overall user experience. Key features of the website include intuitive navigation, detailed service descriptions, and visually appealing layouts that reflect Window Line UAE’s commitment to quality and innovation. The site was also optimized for both desktop and mobile platforms, ensuring accessibility and a seamless browsing experience across all devices. Each section of the website was designed to convey the company’s professionalism and dedication to delivering high-quality results, from initial consultation through to project completion. Overall, the website serves as a crucial tool in reinforcing Window Line UAE’s brand identity, providing potential clients with a clear understanding of the company’s capabilities and values.`,
-    },
-    {
-      id: 4,
-      item: "Window Line UAE",
-      imageUrl: cardImg2,
-      shortDes: "AI driven design tool for the modern web.",
-      types: ["Web Design", "Ui/Ux Design", "Web Development"],
-      des: `I was responsible for designing and developing the comprehensive website for Window Line UAE, a company that excels in interior design, general contracting, and maintenance services. The website was meticulously crafted to highlight the company’s extensive portfolio, including wall coverings, window furnishings, partitioning, and ceiling solutions. The design approach focused on creating a modern, clean, and user-friendly interface that not only showcases their expertise but also enhances the overall user experience. Key features of the website include intuitive navigation, detailed service descriptions, and visually appealing layouts that reflect Window Line UAE’s commitment to quality and innovation. The site was also optimized for both desktop and mobile platforms, ensuring accessibility and a seamless browsing experience across all devices. Each section of the website was designed to convey the company’s professionalism and dedication to delivering high-quality results, from initial consultation through to project completion. Overall, the website serves as a crucial tool in reinforcing Window Line UAE’s brand identity, providing potential clients with a clear understanding of the company’s capabilities and values.`,
-    },
-  ];
+      des: `I was responsible for designing and developing the comprehensive website for Window Line UAE...`
+    }
+];
