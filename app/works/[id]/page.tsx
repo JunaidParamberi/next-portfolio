@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { works as workDatas } from "@/data/projectData";
+import { ArrowUpRight } from "lucide-react";
 
 const Page = () => {
   const { id } = useParams();
@@ -28,24 +29,60 @@ const Page = () => {
   return (
     <div className="min-h-screen flex justify-center py-16 md:pt-32">
       <div className="w-[90%] md:w-[80%] flex flex-col items-center gap-8">
-        {/* Project Title and Description */}
-        <div className="w-full flex flex-col gap-6">
-          <h1 className="text-4xl max-md:text-2xl font-semibold">
-            {currentData.projectName}
-          </h1>
-          <h2 className="font-light text-xl">{currentData.shortDes}</h2>
+        <div className=" w-full flex gap-6 max-md:flex-col">
+          {/* Project Title and Description */}
+          <div className="w-full flex flex-col gap-6">
+            <h1 className="text-4xl max-md:text-2xl font-semibold">
+              {currentData.projectName}
+            </h1>
+            <h2 className="font-light text-md">{currentData.shortDes}</h2>
+
+            {/* Project Types */}
+            <div className="flex flex-wrap gap-2">
+              {currentData.types.map((type, index) => (
+                <span key={index} className=" badge badge-outline p-3 badge-xs">
+                  <p className=" max-md:text-[8px]">{type}</p>
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="w-[40%] max-md:w-full flex-col gap-6">
+            {/* Client Name */}
+            <div className="mb-6">
+              <h3 className="text-lg  font-bold">Client</h3>
+              <p className="opacity-90">{currentData?.clientName}</p>
+            </div>
+
+            {/* Project Year */}
+            <div className="mb-6">
+              <h3 className="text-lg  font-bold">Date</h3>
+              <p className="opacity-90 ">{currentData?.projectYear}</p>
+            </div>
+
+            {/* Project Link - Styled as a Button */}
+            <div className="mb-6">
+              <h3 className="text-lg font-bold">Project Link</h3>
+              <button className=" btn btn-outline flex btn-sm mt-3">
+                <a
+                  href={currentData?.projectLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project
+                </a>
+                <ArrowUpRight />
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Project Types */}
-        <div className="w-full flex flex-wrap gap-2">
-          {currentData.types.map((type, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-gray-200 text-gray-800 rounded-lg text-sm"
-            >
-              {type}
-            </span>
-          ))}
+        <div className=" w-full">
+          <Image
+            src={currentData.imageUrl}
+            alt="Project Image"
+            className="w-full h-full object-cover rounded-lg"
+          />
         </div>
 
         {/* Project Description */}
@@ -54,7 +91,7 @@ const Page = () => {
         </div>
 
         {/* Daisy UI Carousel */}
-        {totalSlides > 0 && (
+        {/* {totalSlides > 0 && (
           <div className="carousel w-full relative">
             {currentData?.Images?.map((image, index) => (
               <div
@@ -71,10 +108,10 @@ const Page = () => {
                   className="w-full h-full object-cover rounded-lg"
                 />
               </div>
-            ))}
+            ))} */}
 
-            {/* Navigation Arrows */}
-            <button
+        {/* Navigation Arrows */}
+        {/* <button
               onClick={prevSlide}
               className="absolute left-5 top-1/2 -translate-y-1/2 btn btn-circle"
             >
@@ -87,10 +124,10 @@ const Page = () => {
               ❯
             </button>
           </div>
-        )}
+        )} */}
 
         {/* Dots Indicator */}
-        {totalSlides > 1 && (
+        {/* {totalSlides > 1 && (
           <div className="flex justify-center gap-2 mt-4">
             {currentData?.Images?.map((_, index) => (
               <button
@@ -102,13 +139,9 @@ const Page = () => {
               />
             ))}
           </div>
-        )}
+        )} */}
 
         {/* Embedded Project */}
-        <iframe
-          src="https://boehringeringelheim-interactive.netlify.app/"
-          className="w-full h-[500px] md:h-[700px] rounded-lg"
-        ></iframe>
       </div>
     </div>
   );

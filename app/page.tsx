@@ -58,6 +58,7 @@ export default function Home() {
         <div className="w-full py-6 flex flex-col gap-4">
           <Hero />
           <Stacks />
+          <About />
           <div className=" w-full flex flex-col items-center" id="works">
             <div className="w-[80%] pb-20 flex flex-col items-center" id="home">
               <h2 className="text-center text-xl py-5">FEATURED WORK</h2>
@@ -72,8 +73,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-
-          <About />
 
           <Clients />
           <Services />

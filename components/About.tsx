@@ -3,14 +3,16 @@ import React from "react";
 const About = () => {
   return (
     <div id="about" className="w-full flex flex-col items-center">
-      <div className=" w-[80%] flex py-20">
+      <div className=" w-[80%] flex py-20 max-md:flex-col">
         <div className=" w-[30%]">
-          <h1 className=" text-5xl">About</h1>
+          <h1 className=" text-5xl pb-8">About</h1>
         </div>
         <div className="w-full">
-          <p className="opacity-80">
-            <strong className=" text-2xl ">I&apos;m Junaid Paramberi,</strong> a
-            dedicated and passionate Web Developer and Graphic Designer with a
+          <p className="opacity-80 text-md md:text-xl">
+            <strong className=" text-2xl max-md:text-xl ">
+              I&apos;m Junaid Paramberi,
+            </strong>{" "}
+            a dedicated and passionate Web Developer and Graphic Designer with a
             rich background in visual arts and technology. My journey began as a
             graphic designer and video editor, where I cultivated my creative
             skills and developed a keen eye for detail. This foundation in
