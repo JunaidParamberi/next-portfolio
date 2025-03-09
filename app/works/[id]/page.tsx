@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { works as workDatas } from "@/data/projectData";
@@ -10,8 +10,6 @@ const Page = () => {
   const currentData = workDatas.find((work) => work.slug === id);
 
   // Always define hooks at the top level
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = currentData?.Images?.length || 0;
 
   if (!currentData) {
     return (
@@ -20,11 +18,6 @@ const Page = () => {
       </div>
     );
   }
-
-  // Next and Previous Slide Functions
-  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  const prevSlide = () =>
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
 
   return (
     <div className="min-h-screen flex justify-center py-16 md:pt-32">
@@ -61,7 +54,7 @@ const Page = () => {
             </div>
 
             {/* Project Link - Styled as a Button */}
-            <div className="mb-6">
+            <div className="mb-6 hover:">
               <h3 className="text-lg font-bold">Project Link</h3>
               <button className=" btn btn-outline flex btn-sm mt-3">
                 <a
@@ -77,69 +70,24 @@ const Page = () => {
           </div>
         </div>
 
-        <div className=" w-full">
-          <Image
-            src={currentData.imageUrl}
-            alt="Project Image"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-
-        {/* Project Description */}
-        <div className="w-full">
-          <p>{currentData.des}</p>
-        </div>
-
-        {/* Daisy UI Carousel */}
-        {/* {totalSlides > 0 && (
-          <div className="carousel w-full relative">
-            {currentData?.Images?.map((image, index) => (
-              <div
-                key={index}
-                className={`carousel-item w-full transition-all duration-500 ${
-                  index === currentIndex ? "opacity-100" : "opacity-0 absolute"
-                }`}
-              >
-                <Image
-                  src={image}
-                  alt={`Project Image ${index + 1}`}
-                  width={800}
-                  height={500}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-            ))} */}
-
-        {/* Navigation Arrows */}
-        {/* <button
-              onClick={prevSlide}
-              className="absolute left-5 top-1/2 -translate-y-1/2 btn btn-circle"
-            >
-              ❮
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-5 top-1/2 -translate-y-1/2 btn btn-circle"
-            >
-              ❯
-            </button>
+        <div className="w-full flex max-md:flex-col gap-10 items-center">
+          {/* Image Container */}
+          <div className="w-[60%] max-md:w-full max-md:h-[300px] h-[450px] relative">
+            <Image
+              src={currentData.imageUrl}
+              alt="Project Image"
+              className="w-full h-full object-cover shadow-2xl shadow-[#2c255500]"
+            />
           </div>
-        )} */}
 
-        {/* Dots Indicator */}
-        {/* {totalSlides > 1 && (
-          <div className="flex justify-center gap-2 mt-4">
-            {currentData?.Images?.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  currentIndex !== index ? "bg-gray-800" : "bg-gray-400"
-                }`}
-                onClick={() => setCurrentIndex(index)}
-              />
-            ))}
+          {/* Project Description */}
+          <div className="w-[40%] max-md:w-full md:border-l-2 md:pl-6">
+            <h3 className="text-lg font-bold pb-4">About This Project</h3>
+            <p className="md:max-h-[500px] md:overflow-y-auto">
+              {currentData.des}
+            </p>
           </div>
-        )} */}
+        </div>
 
         {/* Embedded Project */}
       </div>

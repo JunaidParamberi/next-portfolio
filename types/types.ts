@@ -1,15 +1,15 @@
 import { StaticImageData } from "next/image";
 
 export interface Work {
-  id: number | string;
-  projectYear: string ,
-  projectLink : string
-  clientName : string;
+  id: string;
+  projectYear?: string;
   slug: string;
+  clientName?: string;
   projectName: string;
-  imageUrl: string | StaticImageData; // Allow both types
+  projectLink?: string;
+  imageUrl: StaticImageData;
+  images?: StaticImageData[];
   shortDes: string;
   types: string[];
   des: string;
-  images: string[];
 }

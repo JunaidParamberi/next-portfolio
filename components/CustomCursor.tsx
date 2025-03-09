@@ -3,17 +3,19 @@ import { useEffect, useState } from "react";
 import AnimatedCursor from "react-animated-cursor";
 
 const CustomCursor = () => {
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null); // Start with `null` to prevent SSR mismatch
 
   useEffect(() => {
     const checkScreenSize = () => {
       setIsDesktop(window.innerWidth > 768); // Enable only for screens wider than 768px
     };
 
-    checkScreenSize(); // Check on mount
+    checkScreenSize(); // Run check after mount
     window.addEventListener("resize", checkScreenSize);
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
+
+  if (isDesktop === null) return null; // Prevents rendering before client mounts
 
   if (!isDesktop) return null; // Don't render on mobile
 

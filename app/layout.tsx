@@ -21,6 +21,7 @@ export default function RootLayout({
         <CustomCursor />
         <Navbar />
         {children}
+        <div className="gradient-bg">{/* Your content here */}</div>
         <Footer />
       </body>
     </html>

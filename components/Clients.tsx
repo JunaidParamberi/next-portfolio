@@ -33,7 +33,7 @@ const Clients = () => {
         {clientArr.map((client, index) => (
           <div key={index} className="group flex items-center justify-center">
             <Image
-              className="w-[120px] md:w-[150px] py-5 opacity-60 group-hover:opacity-100 transition-all duration-300"
+              className="w-[120px] md:w-[150px] py-5 max-md:py-1 opacity-60 group-hover:opacity-100 transition-all duration-300"
               src={client.clientImage}
               alt={client.clientName}
             />

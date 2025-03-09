@@ -26,10 +26,13 @@ const Services = () => {
   return (
     <div
       id="services"
-      className="w-full flex py-20 flex-col items-center border-t border-b gap-5 border-gray-400 bg-background"
+      className="w-full flex py-20 max-md:py-10 flex-col items-center  border-b gap-5  border-gray-700  bg-background"
     >
-      <div className=" w-[80%] flex flex-col items-center pb-5">
-        <h1 className="text-5xl w-full text-left text-primary">What I Do</h1>
+      <div className="w-[80%] flex items-center pb-5 gap-4">
+        <h1 className="text-5xl max-md:text-3xl text-left text-primary whitespace-nowrap">
+          What I Do
+        </h1>
+        <div className="flex-1 h-[1px] bg-gray-700"></div>
       </div>
 
       <div className="w-full flex flex-col items-center ">
@@ -40,7 +43,7 @@ const Services = () => {
               className="w-full sm:w-[80%] md:w-[45%] lg:w-[30%] flex flex-col gap-5 p-6 rounded-lg shadow-lg bg-cardBackground hover:shadow-xl transition-shadow"
             >
               {service.icon}
-              <h2 className="text-3xl font-bold text-primary">
+              <h2 className="text-3xl max-md:text-2xl font-bold text-primary">
                 {service.title}
               </h2>
               <p className="opacity-80 text-secondaryText">

@@ -54,7 +54,7 @@ export default function Home() {
         }}
       />
 
-      <div className="w-full flex flex-col items-center">
+      <div className="w-full flex flex-col items-center ">
         <div className="w-full py-6 flex flex-col gap-4">
           <Hero />
           <Stacks />
@@ -68,17 +68,16 @@ export default function Home() {
                 ))}
               </div>
 
-              <Link href="works" className=" btn btn-outline px-8 font-light">
+              <Link href="works" className=" btn btn-outline  px-8 font-light">
                 View All
               </Link>
             </div>
           </div>
 
-          <Clients />
           <Services />
+          <Clients />
           <Contact />
         </div>
-        <div className="gradient-bg">{/* Your content here */}</div>
       </div>
     </>
   );
